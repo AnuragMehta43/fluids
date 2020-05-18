@@ -55,7 +55,7 @@ def Secant(f,kd,Re,x0,x1, eps):
             f0=np.append(f0,[[f1_value]])         #Store soln in array
             i=np.append(i,[[iteration_counter]])         #Store soln in array            
         except ZeroDivisionError:
-            print ("Error! - derivative zero for x1 = ", x1)
+            print ("Error! - denominator zero for x1 = ", x1)
             sys.exit(1)     # Abort with error
 
         f1_value = f(kd,x1,Re)

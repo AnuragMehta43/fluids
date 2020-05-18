@@ -1,5 +1,4 @@
-#FRICTION FACTOR USING NEWTON-RAPHSON AND SECANT METHOD FOR GIVEN REYNOLDS NUMBER
-
+#FRICION FACTOR USING NEWTON-RAPHSON AND SECANT METHOD FOR GIVEN REYNOLDS NUMBER
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -42,7 +41,7 @@ def Secant(f,kd,Re,x0,x1, eps):
             x1 = x1 - float(f1_value)*(x1-x0)/((f1_value)-(f0_value)) #finding xn from xn-1 and xn-2
             x0=p #putting value of xn-1 in x0
         except ZeroDivisionError:
-            print ("Error! - derivative zero for x1 = ", x1)
+            print ("Error! - denominator zero for x1 = ", x1)
             sys.exit(1)     # Abort with error
 
         f1_value = f(kd,x1,Re)
@@ -73,7 +72,7 @@ if Re<=0:
   print("Invalid Input")
 elif Re<=2300: 
   print("Laminar Flow Friction Factor=",64/Re)
-elif Re<=4000 and Re>2000  :
+elif Re<=4000 and Re>2300  :
   print("Transition Phase")
 elif Re>=4000:
   solution_nr, no_iterations_nr = Newton(f, deriv_f,kdv,Re,64/Re, eps=1.0e-8) 

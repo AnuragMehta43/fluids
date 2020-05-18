@@ -43,7 +43,7 @@ def Secant(f,kd,Re,x0,x1, eps):
             x1 = x1 - float(f1_value)*(x1-x0)/((f1_value)-(f0_value)) #finding xn from xn-1 and xn-2
             x0=p #putting value of xn-1 in x0
         except ZeroDivisionError:
-            print ("Error! - derivative zero for x1 = ", x1)
+            print ("Error! - denominator zero for x1 = ", x1)
             sys.exit(1)     # Abort with error
 
         f1_value = f(kd,x1,Re)
@@ -95,14 +95,14 @@ while kdv <= 0.005:
       #here 64/re is taken as initial guess for friction factor  
       if no_iterations_nr > 0:    # Solution found
         sol_newton=np.append(sol_newton,[[solution_nr]])         #Store soln in array
-        iteration_newton=np.append(iteration_newton,[[1+2*no_iterations_nr]])#Store iterations in array
+        iteration_newton=np.append(iteration_newton,[[no_iterations_nr]])#Store iterations in array
         reynold_newton=np.append(reynold_newton,[[i]])        #Store corresp. Re values
       else:
         print ("Solution not found!")   
         continue
       if no_iterations_sec > 0:    # Solution found
         sol_secant=np.append(sol_secant,[[solution_sec]])         #Store soln in array
-        iteration_secant=np.append(iteration_secant,[[1+2*no_iterations_sec]])#Store iterations in array
+        iteration_secant=np.append(iteration_secant,[[no_iterations_sec]])#Store iterations in array
         reynold_secant=np.append(reynold_secant,[[i]])        #Store corresp. Re values
       else:
         print ("Solution not found!")   
