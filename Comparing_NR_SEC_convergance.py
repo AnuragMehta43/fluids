@@ -79,7 +79,7 @@ def deriv_f(kd,x,Re):
     return  -1*(1/(2 * x**(3/2)) + (2.1801583/(Re*kd/3.7*x**(3/2)+2.51*x)))
 
  
-re=5000    
+re=4000    
 kdv=0.000005 #value of relative pipe roughness to diameter
 f_nr, no_iterations_nr = Newton(f, deriv_f,kdv,re,64/re, eps=1.0e-8) 
 x=64/re - float(f(kdv,64/re,re)/deriv_f(kdv,64/re,re)) # second initial value for secant method
